@@ -2,12 +2,12 @@ node('Dotnetcore')
 {
     stage('SCM')
     {
-        checkout([$class: 'GitSCM', branches: [[name: '*/main']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/mnyaqoub/pi.git']]]);
+        checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/mnyaqoub/pi.git']]]);
     }
 
     stage('Build')
     {
-        sh 'dotnet build .'
+        sh 'dotnet build ./src/pi.web/pi.web.csproj'
     }
 
     stage('Test')
