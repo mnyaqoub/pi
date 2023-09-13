@@ -7,7 +7,7 @@ node('Dotnetcore')
 
     stage('Build')
     {
-        sh 'dotnet build ./src/pi.web/pi.web.csproj'
+        sh 'dotnet build ./src/Pi.Web/Pi.Web.csproj'
     }
 
     stage('Test')
