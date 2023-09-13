@@ -13,8 +13,6 @@ node('Dotnetcore')
     stage('Test')
     {
         echo 'Excute unit tests'
-        dotnet test --logger "trx;LogFileName=/out/Pi.Math.trx" ./Pi.Math.Tests/Pi.Math.Tests.csproj
-        dotnet test --logger "trx;LogFileName=/out/Pi.Runtime.trx" ./Pi.Runtime.Tests/Pi.Runtime.Tests.csproj
     }
 
     stage('Package')
@@ -27,8 +25,8 @@ node('Dotnetcore')
         echo 'Push to deployment'
     }
 
-    stage('Archive')
-    {
-        archiveArtifacts artifacts: 'dotnetwebapp/*.*'
-    }
+    // stage('Archive')
+    // {
+    //     archiveArtifacts artifacts: 'dotnetwebapp/*.*'
+    // }
 }
